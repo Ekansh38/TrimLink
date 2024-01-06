@@ -9,10 +9,12 @@
         <link rel="stylesheet" href="{% static 'urlshortener/styles.css' %}">
     </head>
     <body>
+        <div id="form-div">
         <form action="{% url 'index' %}" method='post'>
             {% csrf_token %}
             <input type="text" name="url">
             <input type="submit" value="Submit">
         </form> 
+        </div>
     </body>
 </html>
