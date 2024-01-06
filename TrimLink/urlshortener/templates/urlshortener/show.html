@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Copy Text Example</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'urlshortener/styles.css' %}">
+</head>
+<body>
+    <p>Short url is</p>
+    <h1 id="textToCopy">127.0.0.1:8000/{{url}}</h1>
+    <button id="copyButton">Copy URL</button>
+
+    <script>
+        document.getElementById("copyButton").addEventListener("click", function() {
+            var text = document.getElementById("textToCopy").innerText;
+            var textarea = document.createElement("textarea");
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textarea);
+        });
+    </script>
+</body>
+</html>
+
